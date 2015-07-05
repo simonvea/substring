@@ -36,30 +36,17 @@ def substrings(words, dictionary)
             j = index + 1
             k = index + 1
             
-            while j <= bokstav_array.length do
-                
-                if j < ord.length #passer på at ordet ikke er mindre enn 2
+            while j < bokstav_array.length do
             
-                    sjekkord = bokstav + ord[k..j]
+                 sjekkord = bokstav + ord[k..j]
             
-                    #Sjekker om det matcher ordbok
+                #Sjekker om det matcher ordbok
             
-                    if ordbok.include?sjekkord 
+                if ordbok.include?sjekkord 
         
-                        frequencies[sjekkord] +=1 #legger ord til en liste pluss antall 
-                    end
-                    
-                else
-                    
-                    sjekkord = ord
-                    
-                    if ordbok.include?sjekkord 
-        
-                        frequencies[sjekkord] +=1 #legger ord til en liste pluss antall 
-                    end
-                    
+                    frequencies[sjekkord] +=1 #legger ord til en liste pluss antall 
                 end
-                
+
                 j +=1
                 
             end
@@ -67,6 +54,7 @@ def substrings(words, dictionary)
             
         end
         
+        bokstav_array = []
         
     end
     
@@ -75,38 +63,12 @@ def substrings(words, dictionary)
 
 end
 
-ordbok = ["en", "to", "tre"]
-ords = "en en fire to"
-substrings(ords,ordbok)
+#test fra odin project:
 
+ordbok =  ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-=begin
-FRA tidligere, codecademy:
-puts "Gi meg tekst!"
-text = gets.chomp
+substrings("below", ordbok)
 
-words = text.split
-
-frequencies = Hash.new(0)
-
-words.each {|word| frequencies[word] +=1}
-
-frequencies = frequencies.sort_by{|word, number| number}
-frequencies.reverse!
-
-frequencies.each do |word, number|
-    puts word + " " + number.to_s
-end
-=end
-
-
-
-
-=begin
-    > dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-    => ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-
-    > substrings("below", dictionary)
-    => {"below"=>1, "low"=>1}
+# Skal bli => {"below"=>1, "low"=>1}
+# => funker!
     
-=end
