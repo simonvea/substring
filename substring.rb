@@ -36,6 +36,14 @@ def substrings(words, dictionary)
             j = index + 1
             k = index + 1
             
+            #Sjekker bare bokstav
+            
+            if ordbok.include?bokstav 
+                 frequencies[bokstav] +=1 #legger ord til en liste pluss antall 
+            end
+            
+            #Sjekker resten av ordet
+            
             while j < bokstav_array.length do
             
                  sjekkord = bokstav + ord[k..j]
@@ -71,4 +79,10 @@ substrings("below", ordbok)
 
 # Skal bli => {"below"=>1, "low"=>1}
 # => funker!
+
+#med flere ord:
+substrings("Howdy partner, sit down! How's it going?", ordbok)
+
+#skal bli  => {"down"=>1, "how"=>2, "howdy"=>1,"go"=>1, "going"=>1, "it"=>2, "i"=> 3, "own"=>1,"part"=>1,"partner"=>1,"sit"=>1} 
+
     
